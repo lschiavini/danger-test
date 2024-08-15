@@ -30,6 +30,7 @@ export const useResizeColsToFit = (
       reload?.();
       return;
     }
+    console.log('changing here')
     gridApi?.sizeColumnsToFit();
   }, [gridApi, hideColumnsString, reload]);
 };
