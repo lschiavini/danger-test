@@ -6,6 +6,7 @@
  * @param columnDefs
  * @returns
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const processColumnDefs = (columnDefs: any[]) => {
   return columnDefs.map((columnDef) => ({
     ...columnDef,
