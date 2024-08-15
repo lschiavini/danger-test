@@ -1,10 +1,9 @@
 import { danger, warn } from 'danger'
 
-const agGridFiles = danger.git.modified_files.filter(file => file.startsWith('src/components/AgGrid/'))
-const readmeFile = 'src/components/AgGrid/README.md'
-const readmeChanged = danger.git.modified_files.includes(readmeFile)
+const agGridFiles = danger.git.modified_files.concat(danger.git.created_files)
+  .filter(file => file.startsWith('src/components/AgGrid/'))
 
-if (agGridFiles.length > 0 && !readmeChanged) {
+if (agGridFiles.length > 0) {
   const changedFolders = new Set(agGridFiles.map(file => {
     const parts = file.split('/');
     const agGridIndex = parts.indexOf('AgGrid');
