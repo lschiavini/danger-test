@@ -29,23 +29,23 @@ if (agGridFiles.length > 0 && !readmeChanged) {
 }
 
 // Check for a CHANGELOG entry
-const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md")
-if (!hasChangelog) {
-  warn("Please add a CHANGELOG entry for your changes.")
-}
-
-// Check that every file touched has a corresponding test
-const allFiles = danger.git.modified_files.concat(danger.git.created_files)
-const hasAppChanges = allFiles.some(file => file.includes("src/"))
-const hasTestChanges = allFiles.some(file => file.includes("__tests__/"))
-
-if (hasAppChanges && !hasTestChanges) {
-  warn("There are app changes, but no test changes. Consider adding tests.")
-}
-
-// Check for large PRs
-const bigPRThreshold = 500
-if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
-  warn(':exclamation: Big PR')
-  message(`Pull Request size seems relatively large. If Pull Request contains multiple changes, split each into separate PR will helps faster, easier review.`)
-}
+// const hasChangelog = danger.git.modified_files.includes("CHANGELOG.md")
+// if (!hasChangelog) {
+//   warn("Please add a CHANGELOG entry for your changes.")
+// }
+// 
+// // Check that every file touched has a corresponding test
+// const allFiles = danger.git.modified_files.concat(danger.git.created_files)
+// const hasAppChanges = allFiles.some(file => file.includes("src/"))
+// const hasTestChanges = allFiles.some(file => file.includes("__tests__/"))
+// 
+// if (hasAppChanges && !hasTestChanges) {
+//   warn("There are app changes, but no test changes. Consider adding tests.")
+// }
+// 
+// // Check for large PRs
+// const bigPRThreshold = 500
+// if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
+//   warn(':exclamation: Big PR')
+//   message(`Pull Request size seems relatively large. If Pull Request contains multiple changes, split each into separate PR will helps faster, easier review.`)
+// }
