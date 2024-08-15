@@ -13,16 +13,16 @@ if (agGridFiles.length > 0) {
   changedFolders.forEach(folder => {
     switch(folder) {
       case 'utils':
-        warn('Files in AgGrid/utils have changed. Please update the "Utils" section in src/components/AgGrid/README.md')
+        warn('Files in src/components/AgGrid/utils have changed. Please update the "Utils" section in src/components/AgGrid/README.md')
         break
       case 'hooks':
-        warn('Files in AgGrid/hooks have changed. Please update the "Hooks" section in src/components/AgGrid/README.md')
+        warn('Files in src/components/AgGrid/hooks have changed. Please update the "Hooks" section in src/components/AgGrid/README.md')
         break
       case 'components':
-        warn('Files in AgGrid/components have changed. Please update the "Components" section in src/components/AgGrid/README.md')
+        warn('Files in src/components/AgGrid/components have changed. Please update the "Components" section in src/components/AgGrid/README.md')
         break
       default:
-        warn(`Files in AgGrid/${folder} have changed. Please review and update src/components/AgGrid/README.md if necessary`)
+        warn(`Files in src/components/AgGrid have changed. Please review and update src/components/AgGrid/README.md if necessary`)
     }
   })
 }
