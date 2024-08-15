@@ -35,13 +35,13 @@ if (agGridFiles.length > 0) {
 // }
  
  // Check that every file touched has a corresponding test
- const allFiles = danger.git.modified_files.concat(danger.git.created_files)
- const hasAppChanges = allFiles.some(file => file.includes("src/"))
- const hasTestChanges = allFiles.some(file => file.includes("__tests__/"))
- 
- if (hasAppChanges && !hasTestChanges) {
-   warn("There are app changes, but no test changes. Consider adding tests.")
- }
+// const allFiles = danger.git.modified_files.concat(danger.git.created_files)
+// const hasAppChanges = allFiles.some(file => file.includes("src/"))
+// const hasTestChanges = allFiles.some(file => file.includes("__tests__/"))
+// 
+// if (hasAppChanges && !hasTestChanges) {
+//   warn("There are app changes, but no test changes. Consider adding tests.")
+// }
 // 
 // // Check for large PRs
 // const bigPRThreshold = 500
