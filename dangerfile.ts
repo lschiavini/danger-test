@@ -1,4 +1,4 @@
-import { danger, message, warn } from 'danger'
+import { danger, warn } from 'danger'
 
 const agGridFiles = danger.git.modified_files.filter(file => file.startsWith('src/components/AgGrid/'))
 const readmeFile = 'src/components/AgGrid/README.md'
