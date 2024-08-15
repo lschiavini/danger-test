@@ -4,21 +4,20 @@ on: [pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
-    - name: install yarn
-      run: npm install -g yarn
-    - name: yarn install, build, and test
+        node-version: '18.x'  # Updated to a more recent LTS version
+    - name: Install dependencies
       run: |
-        yarn install  --frozen-lockfile
-        yarn build
-        yarn test
+        npm ci  # Using npm instead of yarn, and `ci` for CI environments
+    - name: Build
+      run: npm run build --if-present
+    - name: Test
+      run: npm test
     - name: Danger
-      run: yarn danger ci
+      run: npx danger ci  # Using npx to run danger
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
