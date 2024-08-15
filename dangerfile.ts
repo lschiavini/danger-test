@@ -1,7 +1,7 @@
 import { danger, warn } from 'danger'
 
 const agGridFiles = danger.git.modified_files.concat(danger.git.created_files)
-  .filter(file => file.startsWith('src/components/AgGrid/'))
+  .filter(file => file.startsWith('src/components/AgGrid/') && !file.endsWith('README.md'))
 
 if (agGridFiles.length > 0) {
   const changedFolders = new Set(agGridFiles.map(file => {
@@ -22,7 +22,7 @@ if (agGridFiles.length > 0) {
         warn('Files in src/components/AgGrid/components have changed. Please update the "Components" section in src/components/AgGrid/README.md')
         break
       default:
-        warn(`Files in src/components/AgGrid have changed. Please review and update src/components/AgGrid/README.md if necessary`)
+        warn(`Files in src/components/AgGrid/${folder} have changed. Please review and update src/components/AgGrid/README.md if necessary`)
     }
   })
 }
